@@ -1,8 +1,8 @@
 const SITE_CONFIG = {
   // Reemplaza estos datos antes de publicar.
-  whatsappNumber: "",
-  contactEmail: "contacto@kumateq.com",
-  demoUrl: "",
+  whatsappNumber: "51930741767",
+  contactEmail: "info@kumateq.com",
+  demoUrl: "https://web-production-35fb24.up.railway.app/",
 };
 
 const header = document.querySelector("[data-header]");
