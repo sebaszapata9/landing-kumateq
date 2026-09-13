@@ -232,6 +232,9 @@ svg { display: block; fill: none; stroke: currentColor; stroke-linecap: round; s
 .demo-placeholder { min-height: 495px; display: grid; place-items: center; position: relative; overflow: hidden; padding: 30px; border-radius: var(--radius-lg); background: #dfe7e1; }
 .demo-placeholder::before { content: ""; position: absolute; inset: 0; opacity: .45; background-image: linear-gradient(rgba(11,33,28,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(11,33,28,.09) 1px, transparent 1px); background-size: 35px 35px; }
 .demo-placeholder > img { width: 100%; height: 100%; position: absolute; inset: 0; z-index: 2; object-fit: cover; }
+.demo-placeholder--filled { min-height: 0; aspect-ratio: 8 / 5; padding: 0; background: var(--white); box-shadow: 0 24px 70px rgba(11,33,28,.13); }
+.demo-placeholder--filled::before { display: none; }
+.demo-placeholder--filled > img { object-fit: contain; }
 .placeholder-browser { width: 85%; aspect-ratio: 1.55; position: relative; z-index: 1; display: grid; place-items: center; align-content: center; padding: 30px; border: 2px dashed #8ba197; border-radius: 15px; background: rgba(255,255,255,.55); text-align: center; }
 .placeholder-browser > div { position: absolute; inset: 0 0 auto; height: 33px; display: flex; align-items: center; gap: 5px; padding: 0 12px; border-bottom: 1px solid #b5c3bc; }
 .placeholder-browser > div span { width: 6px; height: 6px; border-radius: 50%; background: #98aba1; }
@@ -386,6 +389,7 @@ svg { display: block; fill: none; stroke: currentColor; stroke-linecap: round; s
   .pricing-card ul { min-height: 0; }
   .recommended { position: static; display: inline-flex; margin-bottom: 18px; }
   .demo-placeholder { min-height: 320px; padding: 15px; }
+  .demo-placeholder--filled { min-height: 0; padding: 0; }
   .placeholder-browser { width: 94%; }
   .audience-card { padding: 26px; }
   .final-cta { padding: 85px 0; }
