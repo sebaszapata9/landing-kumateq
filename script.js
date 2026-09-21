@@ -1,5 +1,4 @@
 const SITE_CONFIG = {
-  // Reemplaza estos datos antes de publicar.
   whatsappNumber: "51930741767",
   contactEmail: "info@kumateq.com",
   demoUrl: "https://web-production-35fb24.up.railway.app/",
@@ -62,7 +61,7 @@ const buildWhatsAppUrl = (message) => {
 };
 
 document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
-  link.href = buildWhatsAppUrl("Hola, quisiera conocer más sobre los servicios de Kumateq.");
+  link.href = buildWhatsAppUrl("Hola, quisiera conversar sobre cómo mejorar la presencia digital de mi empresa.");
   link.target = "_blank";
   link.rel = "noopener noreferrer";
 });
@@ -91,12 +90,12 @@ form?.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(form);
   const message = [
-    "Hola, quisiera conversar sobre la presencia digital de mi empresa.",
+    "Hola, quisiera conversar con Kumateq sobre la presencia digital de mi empresa.",
     "",
     `Nombre: ${data.get("name")}`,
     `Empresa: ${data.get("company")}`,
-    `Necesidad: ${data.get("need")}`,
-    data.get("message") ? `Detalle: ${data.get("message")}` : "",
+    `Me gustaría mejorar: ${data.get("need")}`,
+    data.get("message") ? `Contexto: ${data.get("message")}` : "",
   ].filter(Boolean).join("\n");
 
   if (!SITE_CONFIG.whatsappNumber) {
@@ -105,15 +104,6 @@ form?.addEventListener("submit", (event) => {
   }
 
   window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
-});
-
-document.querySelectorAll(".accordion details").forEach((detail) => {
-  detail.addEventListener("toggle", () => {
-    if (!detail.open) return;
-    document.querySelectorAll(".accordion details").forEach((other) => {
-      if (other !== detail) other.removeAttribute("open");
-    });
-  });
 });
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -131,4 +121,5 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
   document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 }
 
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+const year = document.querySelector("[data-year]");
+if (year) year.textContent = new Date().getFullYear();
