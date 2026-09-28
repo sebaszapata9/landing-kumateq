@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kumateq | Catálogo web para empresas B2B industriales</title>
 <meta name="description" content="Kumateq implementa una web con landing y catálogo de productos para empresas B2B industriales en Perú. Cada producto lleva a una consulta por WhatsApp.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235e7c4d'/%3E%3Cpath d='M11 8v16M11 16l9-8M13.5 14l7.5 10' stroke='%23f5f3ee' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23102A43'/%3E%3Cpath d='M11 8v16M11 16l9-8M13.5 14l7.5 10' stroke='%2300B8D9' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     /* Marca */
-    --green: #5e7c4d;
-    --slate: #2f4858;
-    --cream: #f5f3ee;
-    /* Derivados */
-    --green-ink: #4b6640;      /* verde más oscuro para texto pequeño (contraste AA) */
-    --green-tint: #e4eadc;
-    --slate-deep: #23363f;
-    --muted: #4d6472;
-    --line: rgba(47, 72, 88, .16);
+    --navy: #102A43;
+    --cyan: #00B8D9;
+    --orange: #F97316;
+    --offwhite: #F7F9FC;
+    /* Colores de apoyo */
+    --orange-hover: #FF8A3D;
+    --cyan-tint: #E5F8FC;
+    --muted: #4D6472;
+    --line: rgba(16, 42, 67, .16);
     --white: #ffffff;
 
     --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -34,8 +34,8 @@
     font-family: var(--font);
     font-size: 1.0625rem;
     line-height: 1.6;
-    color: var(--slate);
-    background: var(--cream);
+    color: var(--navy);
+    background: var(--offwhite);
     -webkit-font-smoothing: antialiased;
   }
   img, svg { display: block; max-width: 100%; }
@@ -43,18 +43,19 @@
   h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
   ul, ol { padding: 0; list-style: none; }
 
-  :focus-visible { outline: 3px solid var(--green-ink); outline-offset: 3px; border-radius: 6px; }
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; border-radius: 6px; }
 
   .wrap { width: min(var(--wrap), 100% - 2.5rem); margin-inline: auto; }
   .section { padding-block: clamp(4rem, 9vw, 7rem); }
-  .section--dark { background: var(--slate); color: var(--cream); }
+  .section--dark { background: var(--navy); color: var(--offwhite); }
 
   /* Tipografía */
   .h1 { font-size: clamp(2.35rem, 5.4vw, 3.9rem); line-height: 1.04; font-weight: 800; letter-spacing: -.035em; }
   .h2 { font-size: clamp(1.75rem, 3.6vw, 2.55rem); line-height: 1.12; font-weight: 800; letter-spacing: -.03em; }
   .h3 { font-size: 1.125rem; line-height: 1.3; font-weight: 700; letter-spacing: -.01em; }
   .lead { font-size: 1.15rem; color: var(--muted); max-width: 56ch; }
-  .section--dark .lead { color: rgba(245, 243, 238, .78); }
+  .section--dark .lead { color: rgba(247, 249, 252, .8); }
+  .section--dark :focus-visible { outline-color: var(--cyan); }
 
   /* Botones */
   .btn {
@@ -65,18 +66,16 @@
     border: 2px solid transparent; border-radius: 999px;
     transition: background-color .2s, color .2s, border-color .2s;
   }
-  .btn--primary { background: var(--green); color: var(--white); }
-  .btn--primary:hover { background: var(--green-ink); }
-  .btn--ghost { border-color: var(--slate); color: var(--slate); background: transparent; }
-  .btn--ghost:hover { background: var(--slate); color: var(--cream); }
-  .btn--light { background: var(--cream); color: var(--slate); }
-  .btn--light:hover { background: var(--white); }
+  .btn--primary { background: var(--orange); border-color: var(--navy); color: var(--navy); }
+  .btn--primary:hover { background: var(--orange-hover); }
+  .btn--ghost { border-color: var(--navy); color: var(--navy); background: transparent; }
+  .btn--ghost:hover { background: var(--navy); color: var(--offwhite); }
   .btn--small { padding: .6rem 1.05rem; font-size: .95rem; }
 
   /* Header */
   .site-header {
     position: sticky; top: 0; z-index: 20;
-    background: rgba(245, 243, 238, .88);
+    background: rgba(247, 249, 252, .92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
@@ -85,7 +84,7 @@
   .logo-mark { width: 34px; height: 34px; }
   .nav { display: flex; align-items: center; gap: 1.75rem; }
   .nav a:not(.btn) { text-decoration: none; font-weight: 600; font-size: .98rem; color: var(--muted); }
-  .nav a:not(.btn):hover { color: var(--slate); }
+  .nav a:not(.btn):hover { color: var(--navy); }
 
   /* Hero */
   .hero { position: relative; overflow: hidden; padding-block: clamp(3rem, 7vw, 5.5rem) clamp(4rem, 8vw, 6.5rem); }
@@ -103,21 +102,21 @@
   .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
   .hero-facts { display: grid; gap: .55rem; font-weight: 600; font-size: .98rem; color: var(--muted); }
   .hero-facts li { display: flex; align-items: center; gap: .6rem; }
-  .tick { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
-  .tick svg { width: 11px; height: 11px; stroke: var(--white); }
+  .tick { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); display: grid; place-items: center; }
+  .tick svg { width: 11px; height: 11px; stroke: var(--cyan); }
 
   /* Demo interactiva */
   .mock {
     background: var(--white);
     border: 1px solid var(--line);
     border-radius: 20px;
-    box-shadow: 0 30px 60px -30px rgba(47, 72, 88, .45);
+    box-shadow: 0 30px 60px -30px rgba(16, 42, 67, .45);
     overflow: hidden;
   }
-  .mock-bar { display: flex; align-items: center; gap: .5rem; padding: .7rem .9rem; background: var(--slate); }
+  .mock-bar { display: flex; align-items: center; gap: .5rem; padding: .7rem .9rem; background: var(--navy); }
   .mock-dots { display: flex; gap: .35rem; }
-  .mock-dots span { width: 9px; height: 9px; border-radius: 50%; background: rgba(245, 243, 238, .35); }
-  .mock-url { flex: 1; margin-left: .5rem; padding: .25rem .8rem; border-radius: 8px; background: rgba(245, 243, 238, .12); color: rgba(245, 243, 238, .85); font-size: .8rem; font-weight: 500; }
+  .mock-dots span { width: 9px; height: 9px; border-radius: 50%; background: rgba(247, 249, 252, .35); }
+  .mock-url { flex: 1; margin-left: .5rem; padding: .25rem .8rem; border-radius: 8px; background: rgba(247, 249, 252, .12); color: rgba(247, 249, 252, .85); font-size: .8rem; font-weight: 500; }
   .mock-body { padding: 1.1rem; display: grid; gap: 1rem; }
   .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
   .chip {
@@ -126,30 +125,30 @@
     border: 1px solid var(--line); background: var(--white); color: var(--muted);
     transition: background-color .2s, color .2s, border-color .2s;
   }
-  .chip:hover { border-color: var(--green); color: var(--slate); }
-  .chip[aria-pressed="true"] { background: var(--slate); border-color: var(--slate); color: var(--cream); }
+  .chip:hover { border-color: var(--navy); color: var(--navy); }
+  .chip[aria-pressed="true"] { background: var(--cyan); border-color: var(--navy); color: var(--navy); }
   .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
   .product {
     display: grid; gap: .35rem; text-align: left; cursor: pointer;
     font: inherit; color: inherit;
     padding: .6rem; border-radius: 12px;
-    border: 1.5px solid var(--line); background: var(--cream);
+    border: 1.5px solid var(--line); background: var(--offwhite);
     transition: border-color .2s, background-color .2s;
   }
-  .product:hover { border-color: var(--green); }
-  .product[aria-pressed="true"] { border-color: var(--green); background: var(--green-tint); }
-  .product-img { aspect-ratio: 4 / 3; display: grid; place-items: center; border-radius: 8px; background: var(--white); color: var(--slate); }
+  .product:hover { border-color: var(--navy); }
+  .product[aria-pressed="true"] { border-color: var(--navy); background: var(--cyan-tint); }
+  .product-img { aspect-ratio: 4 / 3; display: grid; place-items: center; border-radius: 8px; background: var(--white); color: var(--navy); }
   .product-img svg { width: 44%; height: auto; }
   .product-name { font-size: .8rem; font-weight: 700; line-height: 1.25; }
   .product-brand { font-size: .74rem; color: var(--muted); }
-  .ficha { display: grid; gap: .8rem; padding: 1rem; border-radius: 14px; border: 1px solid var(--line); background: var(--cream); }
+  .ficha { display: grid; gap: .8rem; padding: 1rem; border-radius: 14px; border: 1px solid var(--line); background: var(--offwhite); }
   .ficha-head { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
   .ficha-title { font-weight: 800; font-size: 1.05rem; letter-spacing: -.01em; }
   .ficha-meta { font-size: .82rem; color: var(--muted); font-weight: 500; }
   .ficha-label { font-size: .8rem; color: var(--muted); font-weight: 600; }
   .bubble {
     min-height: 3.6rem; padding: .7rem .9rem; font-size: .92rem; line-height: 1.45;
-    background: var(--green-tint); border-radius: 14px 14px 14px 4px;
+    background: var(--cyan-tint); border-radius: 14px 14px 14px 4px;
   }
   .demo-note { font-size: .78rem; color: var(--muted); }
 
@@ -167,8 +166,8 @@
   .step::before {
     counter-increment: paso; content: counter(paso);
     display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
-    background: var(--green); color: var(--white); font-weight: 800; position: relative; z-index: 1;
-    box-shadow: 0 0 0 6px var(--cream);
+    background: var(--navy); color: var(--cyan); font-weight: 800; position: relative; z-index: 1;
+    box-shadow: 0 0 0 6px var(--offwhite);
   }
   .step p { color: var(--muted); font-size: 1rem; }
 
@@ -176,11 +175,11 @@
   .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 3rem; }
   .scope-col { padding: clamp(1.5rem, 3vw, 2.25rem); border-radius: 18px; display: grid; gap: 1.1rem; align-content: start; }
   .scope-col--in { background: var(--white); border: 1px solid var(--line); }
-  .scope-col--out { background: transparent; border: 1.5px dashed rgba(47, 72, 88, .35); }
+  .scope-col--out { background: transparent; border: 1.5px dashed rgba(16, 42, 67, .35); }
   .scope-list { display: grid; gap: .75rem; }
   .scope-list li { display: grid; grid-template-columns: 22px 1fr; gap: .7rem; align-items: start; }
   .scope-list svg { width: 22px; height: 22px; margin-top: 2px; }
-  .scope-col--in svg { stroke: var(--green); }
+  .scope-col--in svg { stroke: var(--navy); }
   .scope-col--out svg { stroke: var(--muted); }
   .scope-col--out li { color: var(--muted); }
 
@@ -195,7 +194,7 @@
   .extras summary::-webkit-details-marker { display: none; }
   .extras summary::after {
     content: ""; flex: none; width: 12px; height: 12px;
-    border-right: 2.5px solid var(--green-ink); border-bottom: 2.5px solid var(--green-ink);
+    border-right: 2.5px solid var(--navy); border-bottom: 2.5px solid var(--navy);
     transform: rotate(45deg); transition: transform .25s;
     margin-right: .25rem;
   }
@@ -205,7 +204,7 @@
   /* Precio */
   .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
   .price-copy { display: grid; gap: 1.25rem; justify-items: start; }
-  .price-card { background: var(--cream); color: var(--slate); border-radius: 20px; padding: clamp(1.5rem, 3vw, 2.25rem); display: grid; gap: 1.25rem; }
+  .price-card { background: var(--offwhite); color: var(--navy); border-radius: 20px; padding: clamp(1.5rem, 3vw, 2.25rem); display: grid; gap: 1.25rem; }
   .price-total { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
   .price-from { font-weight: 600; color: var(--muted); }
   .price-amount { font-size: clamp(2.4rem, 5vw, 3.3rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
@@ -218,23 +217,23 @@
   /* Contacto */
   .contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
   .contact-copy { display: grid; gap: 1.25rem; justify-items: start; }
-  .link-demo { font-weight: 700; color: var(--green-ink); text-underline-offset: 4px; }
+  .link-demo { font-weight: 700; color: var(--navy); text-decoration-color: var(--cyan); text-decoration-thickness: 2px; text-underline-offset: 4px; }
   .form { display: grid; gap: 1.1rem; padding: clamp(1.5rem, 3vw, 2.25rem); background: var(--white); border: 1px solid var(--line); border-radius: 20px; }
   .field { display: grid; gap: .4rem; }
   .field label { font-weight: 700; font-size: .95rem; }
   .field input, .field textarea {
     font: inherit; color: inherit; width: 100%;
     padding: .8rem .95rem; border-radius: 10px;
-    border: 1.5px solid rgba(47, 72, 88, .28); background: var(--cream);
+    border: 1.5px solid rgba(16, 42, 67, .28); background: var(--offwhite);
   }
   .field textarea { min-height: 96px; resize: vertical; }
-  .field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--green-ink); outline-offset: 1px; border-color: var(--green-ink); }
+  .field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--navy); outline-offset: 1px; border-color: var(--navy); }
   .form-note { font-size: .88rem; color: var(--muted); }
 
   /* Footer */
-  .site-footer { padding-block: 2.5rem; background: var(--slate-deep); color: rgba(245, 243, 238, .8); font-size: .95rem; }
+  .site-footer { padding-block: 2.5rem; background: var(--navy); color: rgba(247, 249, 252, .8); font-size: .95rem; }
   .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
-  .site-footer a { color: var(--cream); }
+  .site-footer a { color: var(--offwhite); }
 
   /* Responsive */
   @media (max-width: 960px) {
@@ -265,8 +264,8 @@
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="Kumateq, ir al inicio">
       <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="#5e7c4d"/>
-        <path d="M11 8v16M11 16l9-8M13.5 14l7.5 10" stroke="#f5f3ee" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <rect width="32" height="32" rx="8" fill="#102A43"/>
+        <path d="M11 8v16M11 16l9-8M13.5 14l7.5 10" stroke="#00B8D9" stroke-width="3" stroke-linecap="round" fill="none"/>
       </svg>
       Kumateq
     </a>
@@ -432,7 +431,7 @@
       <div class="price-copy">
         <h2 class="h2">Un precio simple para empezar a recibir consultas</h2>
         <p class="lead">La implementación y la capacitación van en un solo paquete. Los adicionales se cotizan según lo que necesites.</p>
-        <a class="btn btn--light" href="#contacto">Pedir cotización</a>
+        <a class="btn btn--primary" href="#contacto">Pedir cotización</a>
       </div>
       <div class="price-card">
         <div class="price-total">
